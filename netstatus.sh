@@ -22,6 +22,8 @@
 # cd /usr/local/bin; sudo ln -sf /code_directory/termtools/netstatus.sh netstatus
 
 
+function netstatus {
+
 # initialize variables
 mkdir /dev/shm/temp 2> /dev/null
 lastconuptime="(hasn't connected since this session began)"
@@ -139,3 +141,14 @@ echo "=========================="
 nmcli device wifi list
 echo
 echo
+echo "Press X to exit or ENTER to run again..."
+read q
+case $q in
+  [xX]) exit ;;
+  *) netstatus ;;
+esac
+
+}
+
+
+netstatus
