@@ -133,17 +133,18 @@ echo "====================================="
 nmcli connection show
 # It would be useful if there is a way to show only connections that are accessible to the network card in its present state (active/inactive).
 echo
-echo
 nmcli device wifi rescan
 sleep .5
+echo
+echo
 echo "AVAILABLE WIFI CONNECTIONS"
 echo "=========================="
 nmcli device wifi list
 echo
 echo
 echo "Press X to exit or ENTER to run again..."
-read q
-case $q in
+read -p "" -n 1 key
+case $key in
   [xX]) exit ;;
   *) netstatus ;;
 esac
